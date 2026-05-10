@@ -1,0 +1,11 @@
+To run user folder, open a new vsscode instance after pulling exactly on user, the .vscode already configured to run the user ui
+
+To run server folder please use manual terminal or create a costum .vscode
+
+Please make sure to pull the progress before pushing your own, if you have work done but the repository is updated please store your progress first, pull, then restore your progress. (for both backend and front end)
+
+If I have an extra time, maybe I could work on .vscode on parent files to run both user and server instance simultaniously 
+
+add a new txt file or contact on line if you guys have any question
+
+--your classmate 莊全桔
