@@ -32,7 +32,7 @@ public class Main extends Application {
     //stage.setResizable(false);
     //stage.setX(50);
     //stage.setY(50);
-    stage.setFullScreen(true);
+    //stage.setFullScreen(true);
     //stage.setFullScreenExitHint("YOU CAN'T ESCAPE unless you press q");
     //stage.setFullScreenExitKeyCombination(KeyCombination.valueOf("q"));
 
