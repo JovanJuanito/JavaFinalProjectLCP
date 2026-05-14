@@ -11,11 +11,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 
 public class MainScreen implements Initializable{
-
-    private ViewData<Sidebar> SidebarData;
-
+    
     @FXML
     private BorderPane MainPane;
+
+    private ViewData<Sidebar> SidebarData;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

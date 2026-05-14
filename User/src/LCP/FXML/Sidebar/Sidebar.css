@@ -1,0 +1,21 @@
+#SidebarPane{
+    -fx-background-color: black;
+}
+
+#ButtonContainer{
+    -fx-background-color: darkgray;
+    -fx-background-radius: 8px ;
+}
+
+#ImageContainer{
+    -fx-background-color: darkgray;
+    -fx-background-radius: 24px ;
+}
+
+#Button{
+    -fx-background-radius: 16px ;
+}
+
+#Image{
+    
+}
