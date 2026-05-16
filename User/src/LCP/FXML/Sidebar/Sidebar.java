@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
+import LCP.FXML.ChatBox.ChatBox;
 import LCP.FXML.GlobalChat.GlobalChat;
 import LCP.FXML.PrivateChat.PrivateChat;
 import LCP.Loaders.ObjectLoader;
@@ -22,8 +23,11 @@ public class Sidebar implements Initializable {
 
     private Consumer<Pane> NewPane;
 
+    private Pane currentPane;
+
     private ViewData<GlobalChat> GlobalChatData;
     private ViewData<PrivateChat> PrivateChatData;
+    private ViewData<ChatBox> ChatBoxData;
 
     public Pane getGlobalChatPane(){
         return GlobalChatData.getPane(); // add a try execpt block!
@@ -34,11 +38,19 @@ public class Sidebar implements Initializable {
     }
 
     public void loadGlobalChat(){
-        if(NewPane != GlobalChatData.getPane())NewPane.accept(getGlobalChatPane());
+        Pane GlobalPane = GlobalChatData.getPane();
+        if(currentPane != GlobalPane){
+            NewPane.accept(getGlobalChatPane());
+            GlobalChatData.getController().activateChatBox(); // single parent 
+        }
     }
 
     public void loadPrivateChat(){
-        if(NewPane != GlobalChatData.getPane())NewPane.accept(PrivateChatData.getPane());
+        Pane privatePane = PrivateChatData.getPane();
+        if(currentPane != privatePane){
+            NewPane.accept(PrivateChatData.getPane());
+            PrivateChatData.getController().activateChatBox();// single parent
+        }
     }
 
     @Override
@@ -53,9 +65,16 @@ public class Sidebar implements Initializable {
 
         ObjectLoader GlobalChatLoader = new ObjectLoader();
         ObjectLoader PrivateChatLoader = new ObjectLoader();
+        ObjectLoader ChatBoxLoader = new ObjectLoader();
 
         GlobalChatData = GlobalChatLoader.load("GlobalChat");
         PrivateChatData = PrivateChatLoader.load("PrivateChat");
+        ChatBoxData = ChatBoxLoader.load("ChatBox");
+
+        GlobalChatData.getController().setChatBox(ChatBoxData.getPane());
+        PrivateChatData.getController().setChatBox(ChatBoxData.getPane());
+
+        GlobalChatData.getController().activateChatBox();
     }
     
 }

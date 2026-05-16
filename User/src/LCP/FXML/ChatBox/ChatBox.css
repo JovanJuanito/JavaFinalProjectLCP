@@ -1,0 +1,15 @@
+#ChatBoxContainer{
+    -fx-background-color: darkgray ;
+}
+
+#ImageContainer{}
+
+#TextFieldContainer{
+    -fx-background-radius: 50px ;
+}
+
+#ImageView{}
+
+#TextField{
+     -fx-background-radius: 50px ;
+}
