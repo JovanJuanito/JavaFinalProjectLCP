@@ -1,0 +1,11 @@
+# Ignore the compiled output folder
+Server/
+
+# Ignore local VS Code state, but KEEP the shared configs
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+
+# Ignore temporary OS files
+.DS_Store
+Thumbs.db
