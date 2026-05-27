@@ -6,12 +6,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 
-
 <HBox id="ChatBoxContainer" fx:id="ChatBoxPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" stylesheets="@ChatBox.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LCP.FXML.ChatBox.ChatBox">
    <children>
       <HBox id="ImageContainer" prefHeight="100.0" prefWidth="100.0">
          <children>
-            <ImageView id="ImageView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="ImageView" fitHeight="41.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../resource/PlusIcon.png" />
                </image>
@@ -20,7 +19,7 @@
       </HBox>
       <HBox id="TextFieldContainer" prefHeight="100.0" prefWidth="500.0" HBox.hgrow="ALWAYS">
          <children>
-            <TextField id="TextField" prefHeight="100.0" prefWidth="500.0" HBox.hgrow="ALWAYS" />
+            <TextField id="TextField" fx:id="TextField" onKeyPressed="#sendMessage" prefHeight="100.0" prefWidth="500.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
    </children>

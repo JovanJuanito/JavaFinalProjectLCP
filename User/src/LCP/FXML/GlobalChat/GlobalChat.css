@@ -1,0 +1,9 @@
+#ContentPane {
+
+    -fx-background-color:
+        linear-gradient(
+            to bottom right,
+            #1f2233,
+            #2b3047
+        );
+}
