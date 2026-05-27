@@ -9,7 +9,7 @@
             "name": "LCP app",
             "request": "launch",
             "mainClass": "LCP.Main",
-            "vmArgs": "--module-path ./lib/javafx-sdk-21.0.10/lib --add-modules javafx.controls,javafx.fxml --add-modules javafx.controls,javafx.media"
+            "vmArgs": "--module-path ./lib/javafx-sdk-21.0.10/lib --add-modules javafx.controls,javafx.fxml,javafx.media"
         }
     ]
 }
