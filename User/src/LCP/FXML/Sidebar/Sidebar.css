@@ -1,21 +1,59 @@
-#SidebarPane{
-    -fx-background-color: black;
+#SidebarPane {
+    -fx-background-color: linear-gradient(to bottom, #1e1f29, #252836);
+    -fx-padding: 16;
 }
 
-#ButtonContainer{
-    -fx-background-color: darkgray;
-    -fx-background-radius: 8px ;
+#ButtonContainer {
+    -fx-background-color: #2d3142;
+    -fx-background-radius: 20;
+    -fx-padding: 12;
+
+    -fx-effect:
+        dropshadow(gaussian,
+        rgba(0,0,0,0.25),
+        15,0,0,4);
 }
 
-#ImageContainer{
-    -fx-background-color: darkgray;
-    -fx-background-radius: 24px ;
+#ImageContainer {
+    -fx-background-color: #3a3f58;
+    -fx-background-radius: 24;
+
+    -fx-effect:
+        dropshadow(gaussian,
+        rgba(0,0,0,0.3),
+        12,0,0,3);
 }
 
-#Button{
-    -fx-background-radius: 16px ;
+#Button {
+
+    -fx-background-color: #5865F2;
+    -fx-text-fill: white;
+
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 18;
+
+    -fx-cursor: hand;
+
+    -fx-effect:
+        dropshadow(gaussian,
+        rgba(0,0,0,0.2),
+        8,0,0,2);
 }
 
-#Image{
-    
+#Button:hover {
+
+    -fx-background-color: #7289da;
+
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+#Button:pressed {
+
+    -fx-background-color: #4752C4;
+
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
 }

@@ -1,6 +1,7 @@
 package LCP;
 
 import LCP.FXML.MainScreen.MainScreen;
+import LCP.Loaders.Client;
 import LCP.Loaders.ObjectLoader;
 import LCP.Loaders.ViewData;
 import javafx.application.Application;
@@ -16,14 +17,22 @@ public class Main extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-
+    
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 
         ObjectLoader MainLoader = new ObjectLoader();
         ViewData<MainScreen> MainData = MainLoader.load("MainScreen");
 
+        Client client = new Client();
+        client.run(); // connnecting to Server + adding thread
+
+        MainData.getController().setClient(client);
+
         stage.setScene(new Scene(MainData.getPane(),screenBounds.getWidth(),screenBounds.getHeight()));
         stage.show();
+        
+        
+
     }
 
 }

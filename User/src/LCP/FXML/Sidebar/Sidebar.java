@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 import LCP.FXML.ChatBox.ChatBox;
 import LCP.FXML.GlobalChat.GlobalChat;
 import LCP.FXML.PrivateChat.PrivateChat;
+import LCP.Loaders.Client;
 import LCP.Loaders.ObjectLoader;
 import LCP.Loaders.ViewData;
 import javafx.fxml.FXML;
@@ -22,6 +23,7 @@ public class Sidebar implements Initializable {
     private VBox SidebarPane;
 
     private Consumer<Pane> NewPane;
+    private Client client;
 
     private Pane currentPane;
 
@@ -53,6 +55,11 @@ public class Sidebar implements Initializable {
         }
     }
 
+    public void setClient(Client x){
+        this.client = x;
+        ChatBoxData.getController().setClient(client);
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         // init sidebar
@@ -75,6 +82,7 @@ public class Sidebar implements Initializable {
         PrivateChatData.getController().setChatBox(ChatBoxData.getPane());
 
         GlobalChatData.getController().activateChatBox();
+
     }
     
 }
