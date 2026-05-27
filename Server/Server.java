@@ -97,7 +97,7 @@ public class Server implements Runnable{ // has a relationship with ConnectionHa
                         broadcast(nickname + " left the chat!");
                         shutdown();
                     } else{
-                        broadcast(nickname + ": a" + message);
+                        broadcast(nickname + " : " + message);
                     }
                 }
             } catch(IOException e){

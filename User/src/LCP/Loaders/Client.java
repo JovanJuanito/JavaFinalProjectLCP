@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.Socket;
-import java.util.Scanner;
 import java.io.IOException;
 
 public class Client implements Runnable {
@@ -14,12 +13,10 @@ public class Client implements Runnable {
     private PrintWriter out; // Socket output responsible for determining output
     private String username;
 
-    private boolean done = false;
-
     @Override
     public void run(){
         try{
-            client = new Socket("127.0.0.1", 9999);
+            client = new Socket("190.163.32.201", 9999);
             out = new PrintWriter(client.getOutputStream(), true); // setting client Socket output
             in = new BufferedReader(new InputStreamReader(client.getInputStream())); // setting client Socket input
 
@@ -56,7 +53,7 @@ public class Client implements Runnable {
             String inMessage;
             try {
                 while((inMessage = in.readLine()) != null){// waits server
-                    
+                    System.out.println(inMessage);
                 }
             } catch (IOException e) {
                 shutdown();
