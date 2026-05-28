@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" styleClass="UsernameUI" stylesheets="@Username.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LCP.FXML.Username.Username">
+   <children>
+      <Label id="title" text="LCP" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <font>
+         </font>
+      </Label>
+      <VBox alignment="TOP_CENTER" styleClass="InputContainer" VBox.vgrow="ALWAYS">
+         <children>
+            <TextField id="textField" alignment="CENTER" promptText="Username " VBox.vgrow="ALWAYS">
+               <font>
+               </font>
+            </TextField>
+            <Label id="helperLabel" text="press enter to continue" VBox.vgrow="ALWAYS">
+               <font>
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </VBox>
+   </children>
+</VBox>

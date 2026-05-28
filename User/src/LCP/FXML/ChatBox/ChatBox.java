@@ -23,13 +23,28 @@ public class ChatBox implements Initializable{
 
     private Client client;
 
+    private String msg;
+
     public void setClient(Client x){
         this.client = x;
     }
 
     public void sendMessage(KeyEvent e){
         if (e.getCode() == KeyCode.ENTER){
-            client.sendMessage(TextField.getText());
+            msg = TextField.getText();
+            client.sendMessage(msg); //send anyway to server cuz server want to broadcast nick change to everyone
+            if(msg.startsWith("/nick")){
+                String[] messageSplit = msg.split(" ", 2);
+                if(messageSplit.length == 2){
+                    //popup nick ui 
+                }
+                else{
+                    //popup failed nick change ui
+                }
+            }   
+            else if(msg.startsWith("/quit")){
+                //quit javafx
+            }
         }
     }
     

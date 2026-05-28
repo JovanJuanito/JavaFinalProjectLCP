@@ -1,0 +1,32 @@
+.UsernameUI{
+    -fx-Spacing: 16;
+    -fx-Padding: 16;
+
+    -fx-background-color: #252836;
+    /* -fx-background-radius: 16; */
+    
+    -fx-border-color:#3a3f58;
+    -fx-border-width:2;
+    -fx-border-radius: 16;
+}
+
+#title{
+    -fx-font-size: 28;
+    -fx-text-fill: white;
+}
+
+.InputContainer{
+    -fx-Spacing: 4;
+}
+
+#textField{
+    -fx-background-color: #3a3f58;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #9ea4c3;
+    -fx-font-size:14;
+}
+#helperLabel{
+    -fx-font-size:10;
+    -fx-text-fill: #9ea4c3;
+    -fx-font-weight: bold;
+}

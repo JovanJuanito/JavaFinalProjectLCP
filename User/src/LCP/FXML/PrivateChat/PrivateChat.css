@@ -1,4 +1,6 @@
-#ContentPane {
+.ContentUI {
+    -fx-padding:8;
+
     -fx-background-color:
         linear-gradient(
             to bottom right,

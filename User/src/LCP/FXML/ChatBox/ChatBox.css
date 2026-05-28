@@ -1,12 +1,8 @@
-#ChatBoxContainer {
-
+.ChatBoxUI{
     -fx-background-color: #252836;
 
-    -fx-background-radius: 24;
-
-    -fx-padding: 12;
-
-    -fx-spacing: 12;
+    -fx-padding: 16, 0, 16, 0;
+    -fx-spacing: 16;
 
     -fx-effect:
         dropshadow(gaussian,
@@ -14,33 +10,17 @@
         10,0,0,2);
 }
 
-#ImageContainer {
-
-    -fx-background-color: #5865F2;
-
-    -fx-background-radius: 50;
-
-    -fx-alignment: center;
-}
-
-#TextField {
+#textField {
+    -fx-padding:2, 2, 2, 2;
 
     -fx-background-color: #3a3f58;
-
     -fx-text-fill: white;
-
     -fx-prompt-text-fill: #9ea4c3;
 
-    -fx-font-size: 18px;
-
-    -fx-background-radius: 50;
-
-    -fx-padding: 0 20 0 20;
-
-    -fx-border-width: 0;
+    -fx-font-size: 14px;
 }
 
-#TextField:focused {
+#textField:focused {
 
     -fx-background-color: #434966;
 
