@@ -80,18 +80,12 @@ public class Server implements Runnable{ // has a relationship with ConnectionHa
                 out = new PrintWriter(client.getOutputStream(), true); // setting connection via socket (spreading end)
                 in = new BufferedReader(new InputStreamReader(client.getInputStream())); // setting connection via socket (recieving end)
                 
-                nickname = in.readLine();// wait for the first input which will be the name
-                System.out.println(nickname + " connected!\n");
-                broadcast(nickname + " joined the chat!");
-                
                 String message;
                 while((message = in.readLine()) != null){ // waiting for input from clients
                     if(message.startsWith("/nick ")){
                         String[] messageSplit = message.split(" ", 2);
                         if(messageSplit.length == 2){
-                            broadcast(nickname + " renamed themselves to " + messageSplit[1]);
-                            System.out.println(nickname + " renamed themselves to " + messageSplit[1]);
-                            nickname = messageSplit[1];
+                            changeNick(messageSplit[1]); 
                         }
                     } else if(message.startsWith("/quit")){
                         broadcast(nickname + " left the chat!");
@@ -103,6 +97,17 @@ public class Server implements Runnable{ // has a relationship with ConnectionHa
             } catch(IOException e){
                 shutdown(); // connection is not establish 
             }
+        }
+
+        public void changeNick(String nick){
+            if(nickname == null){
+                System.out.println(nick + " connected!\n");
+                broadcast(nick + " joined the chat!");
+            }else{
+                broadcast(nickname + " renamed themselves to " + nick);
+                System.out.println(nickname + " renamed themselves to " + nick);
+            }
+            this.nickname = nick;
         }
 
         public void sendMessage(String message){

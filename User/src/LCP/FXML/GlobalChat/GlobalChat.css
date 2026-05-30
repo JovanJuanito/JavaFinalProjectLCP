@@ -8,3 +8,7 @@
             #2b3047
         );
 }
+
+.ChatContainer{
+    -fx-background-color: #3a3f58;
+}

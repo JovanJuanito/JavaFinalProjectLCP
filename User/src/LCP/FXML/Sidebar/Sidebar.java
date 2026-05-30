@@ -4,10 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
-import LCP.FXML.ChatBox.ChatBox;
 import LCP.FXML.GlobalChat.GlobalChat;
 import LCP.FXML.PrivateChat.PrivateChat;
-import LCP.Loaders.Client;
 import LCP.Loaders.ObjectLoader;
 import LCP.Loaders.ViewData;
 import javafx.fxml.FXML;
@@ -19,31 +17,27 @@ import javafx.stage.Screen;
 
 public class Sidebar implements Initializable {
 
-    @FXML
-    private VBox SidebarPane;
-
     private Consumer<Pane> NewPane;
-    private Client client;
-
     private Pane currentPane;
 
     private ViewData<GlobalChat> GlobalChatData;
     private ViewData<PrivateChat> PrivateChatData;
-    private ViewData<ChatBox> ChatBoxData;
 
-    public Pane getGlobalChatPane(){
-        return GlobalChatData.getPane(); // add a try execpt block!
-    }
+    @FXML
+    private VBox SidebarPane;
 
     public void setContentPane(Consumer<Pane> NewPane){
         this.NewPane = NewPane;
+    }
+
+    public Pane getGlobalChatPane(){
+        return GlobalChatData.getPane(); // add a try execpt block!
     }
 
     public void loadGlobalChat(){
         Pane GlobalPane = GlobalChatData.getPane();
         if(currentPane != GlobalPane){
             NewPane.accept(getGlobalChatPane());
-            GlobalChatData.getController().activateChatBox(); // single parent 
         }
     }
 
@@ -51,13 +45,7 @@ public class Sidebar implements Initializable {
         Pane privatePane = PrivateChatData.getPane();
         if(currentPane != privatePane){
             NewPane.accept(PrivateChatData.getPane());
-            PrivateChatData.getController().activateChatBox();// single parent
         }
-    }
-
-    public void setClient(Client x){
-        this.client = x;
-        ChatBoxData.getController().setClient(client);
     }
 
     @Override
@@ -72,16 +60,9 @@ public class Sidebar implements Initializable {
 
         ObjectLoader GlobalChatLoader = new ObjectLoader();
         ObjectLoader PrivateChatLoader = new ObjectLoader();
-        ObjectLoader ChatBoxLoader = new ObjectLoader();
 
         GlobalChatData = GlobalChatLoader.load("GlobalChat");
         PrivateChatData = PrivateChatLoader.load("PrivateChat");
-        ChatBoxData = ChatBoxLoader.load("ChatBox");
-
-        GlobalChatData.getController().setChatBox(ChatBoxData.getPane());
-        PrivateChatData.getController().setChatBox(ChatBoxData.getPane());
-
-        GlobalChatData.getController().activateChatBox();
 
     }
     
