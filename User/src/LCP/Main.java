@@ -24,7 +24,7 @@ public class Main extends Application{
         ViewData<MainScreen> MainData = MainLoader.load("MainScreen");
 
         Client client = new Client();
-        client.run(); // connnecting to Server + adding thread
+        client.run(); // connnecting to Server
 
         MainData.getController().setClient(client);
 
