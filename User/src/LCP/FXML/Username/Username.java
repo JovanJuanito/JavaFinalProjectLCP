@@ -7,12 +7,12 @@ import java.util.function.Consumer;
 import LCP.Loaders.Client;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-// import javafx.geometry.Rectangle2D;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
-// import javafx.stage.Screen;
+import javafx.stage.Screen;
 
 public class Username implements Initializable{
 
@@ -54,10 +54,13 @@ public class Username implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         
-        // Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         
-        // UsernameContainer.setMaxWidth(screenBounds.getWidth() * 0.8);
-        // UsernameContainer.setMaxHeight(screenBounds.getHeight() * 0.8);
+        UsernameContainer.setPrefWidth(screenBounds.getWidth() * 0.8);
+        UsernameContainer.setPrefHeight(screenBounds.getHeight() * 0.8);
+
+        UsernameContainer.setMaxWidth(UsernameContainer.getPrefWidth());
+        UsernameContainer.setMaxHeight(UsernameContainer.getPrefHeight());
 
     }
     

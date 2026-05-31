@@ -4,6 +4,10 @@ import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.function.Consumer;
+
+import javafx.application.Platform;
+
 import java.io.IOException;
 
 public class Client implements Runnable {
@@ -12,6 +16,8 @@ public class Client implements Runnable {
     private BufferedReader in; // Socket input responsible for recieving input
     private PrintWriter out; // Socket output responsible for determining output
     private String username;
+
+    private Consumer<String> transferMessage;
 
     @Override
     public void run(){
@@ -34,6 +40,10 @@ public class Client implements Runnable {
         if(username == null) username = msg; // set username for the first input recieved
     }
 
+    public void addChat(Consumer<String> signal){
+        this.transferMessage = signal;
+    }
+
     public void shutdown(){
         try{
             in.close();
@@ -53,7 +63,8 @@ public class Client implements Runnable {
             String inMessage;
             try {
                 while((inMessage = in.readLine()) != null){// waits server
-                    System.out.println(inMessage);
+                    final String msg = inMessage; // msg need to be final for runLater
+                    Platform.runLater(() ->{transferMessage.accept(msg);}); // because client and javafx in different threads we
                 }
             } catch (IOException e) {
                 shutdown();

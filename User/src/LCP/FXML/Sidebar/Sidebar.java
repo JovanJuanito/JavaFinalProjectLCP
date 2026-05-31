@@ -30,6 +30,10 @@ public class Sidebar implements Initializable {
         this.NewPane = NewPane;
     }
 
+    public void addChat(String chat){
+        GlobalChatData.getController().addChat(chat);
+    }
+
     public Pane getGlobalChatPane(){
         return GlobalChatData.getPane(); // add a try execpt block!
     }
@@ -55,6 +59,9 @@ public class Sidebar implements Initializable {
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         
         SidebarPane.setPrefWidth( screenBounds.getWidth() * 0.25);
+        SidebarPane.setPrefHeight(screenBounds.getHeight());
+
+        SidebarPane.setMinHeight(SidebarPane.getPrefHeight());
 
         // init Content
 

@@ -31,7 +31,7 @@ public class Main extends Application{
         stage.setScene(new Scene(MainData.getPane(),screenBounds.getWidth(),screenBounds.getHeight()));
         stage.show();
         
-        
+        client.addChat(signal ->{MainData.getController().addChat(signal);});
 
     }
 

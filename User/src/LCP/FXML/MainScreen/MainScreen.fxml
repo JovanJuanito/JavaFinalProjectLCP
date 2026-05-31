@@ -3,9 +3,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 
-
 <StackPane fx:id="MainStackPane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LCP.FXML.MainScreen.MainScreen">
    <children>
-      <BorderPane fx:id="MainPane" stylesheets="@MainScreen.css" />
+      <BorderPane id="MainParentBorderPane" fx:id="MainParentBorderPane">
+         <center>
+            <BorderPane fx:id="MainPane" stylesheets="@MainScreen.css" />
+         </center>
+      </BorderPane>
    </children>
 </StackPane>

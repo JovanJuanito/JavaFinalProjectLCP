@@ -16,8 +16,6 @@ import javafx.scene.layout.StackPane;
 
 public class MainScreen implements Initializable{
     
-    private Client client;
-    
     private ViewData<Sidebar> SidebarData;
     private ViewData<Username> UsernameData;
     private ViewData<ChatBox> ChatBoxData;
@@ -25,12 +23,17 @@ public class MainScreen implements Initializable{
     @FXML
     private BorderPane MainPane;
     @FXML
+    private BorderPane MainParentBorderPane;
+    @FXML
     private StackPane MainStackPane;
 
     public void setClient(Client x){
-        this.client = x;
-        ChatBoxData.getController().setClient(client);
-        UsernameData.getController().setClient(client);
+        ChatBoxData.getController().setClient(x);
+        UsernameData.getController().setClient(x);
+    }
+
+    public void addChat(String chat){
+        SidebarData.getController().addChat(chat);
     }
 
     public void togglePopUp(Boolean toggle){
@@ -55,13 +58,15 @@ public class MainScreen implements Initializable{
 
         MainStackPane.getChildren().add(UsernameData.getPane());
 
-        MainPane.setLeft(SidebarData.getPane());
+        MainParentBorderPane.setLeft(SidebarData.getPane());
+
         MainPane.setCenter(SidebarData.getController().getGlobalChatPane());
         MainPane.setBottom(ChatBoxData.getPane());
 
         SidebarData.getController().setContentPane(NewPane -> {MainPane.setCenter(NewPane);});
         UsernameData.getController().togglePopUp(toggle -> {togglePopUp(toggle);});
         ChatBoxData.getController().togglePopUp(toggle ->{togglePopUp(toggle);});
+
     }
     
 }

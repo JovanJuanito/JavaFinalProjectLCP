@@ -7,10 +7,12 @@ import java.util.function.Consumer;
 import LCP.Loaders.Client;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.Screen;
 
 public class ChatBox implements Initializable{
 
@@ -43,8 +45,7 @@ public class ChatBox implements Initializable{
             if(msg.startsWith("/nick")){
                 String[] messageSplit = msg.split(" ", 2);
                 if(messageSplit.length == 1){
-                    activatePopUp.accept(true);
-                    //popup nick ui
+                    activatePopUp.accept(true);//popup nick ui
                 }
                 //messageSplit == 2 already handled
                 else{
@@ -59,6 +60,11 @@ public class ChatBox implements Initializable{
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+
+        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+        
+        ChatBoxPane.setPrefWidth(screenBounds.getWidth() * 0.75);
+        ChatBoxPane.setPrefHeight(screenBounds.getHeight() * 0.10);
 
     }
     
