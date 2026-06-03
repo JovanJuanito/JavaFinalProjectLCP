@@ -4,12 +4,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LCP.FXML.GlobalChat.GlobalChat">
+<StackPane stylesheets="@GlobalChat.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LCP.FXML.GlobalChat.GlobalChat">
    <children>
-      <ScrollPane fx:id="contentPane" styleClass="ContentUI" stylesheets="@GlobalChat.css">
+      <ScrollPane fx:id="contentPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" styleClass="ContentUI" vbarPolicy="NEVER">
          <content>
-            <VBox fx:id="chatContainer" />
+            <VBox fx:id="chatContainer" styleClass="ChatContainer" />
          </content>
       </ScrollPane>
    </children>

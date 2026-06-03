@@ -10,10 +10,8 @@ import LCP.Loaders.ObjectLoader;
 import LCP.Loaders.ViewData;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
 
 public class Sidebar implements Initializable {
 
@@ -54,14 +52,6 @@ public class Sidebar implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        // init sidebar
-
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        
-        SidebarPane.setPrefWidth( screenBounds.getWidth() * 0.25);
-        SidebarPane.setPrefHeight(screenBounds.getHeight());
-
-        SidebarPane.setMinHeight(SidebarPane.getPrefHeight());
 
         // init Content
 

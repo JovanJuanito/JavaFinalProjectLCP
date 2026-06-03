@@ -1,7 +1,5 @@
 .SidebarUI{
     -fx-pref-width:180;
-    
-    -fx-max-height:9999;
 
     -fx-background-color: linear-gradient(to bottom, #1e1f29, #252836);
     -fx-padding: 16;
@@ -26,7 +24,6 @@
 }
 
 #Button {
-    -fx-max-width:99999;
 
     -fx-background-color: #5865F2;
     -fx-text-fill: white;

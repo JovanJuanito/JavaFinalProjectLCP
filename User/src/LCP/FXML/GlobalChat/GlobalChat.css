@@ -1,5 +1,6 @@
 .ContentUI {
     -fx-padding:8;
+    -fx-spacing:8;
 
     -fx-background-color:
         linear-gradient(
@@ -10,5 +11,7 @@
 }
 
 .ChatContainer{
+    -fx-padding:8;
+    -fx-spacing:8;
     -fx-background-color: #3a3f58;
 }

@@ -9,8 +9,8 @@
       <ImageView id="profile" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS" />
       <VBox alignment="TOP_CENTER" styleClass="ButtonContainer" VBox.vgrow="ALWAYS">
          <children>
-            <Button id="Button" mnemonicParsing="false" onAction="#loadGlobalChat" text="Global Chat" VBox.vgrow="ALWAYS" />
-            <Button id="Button" mnemonicParsing="false" onAction="#loadPrivateChat" text="Private Chat" VBox.vgrow="ALWAYS" />
+            <Button id="Button" mnemonicParsing="false" onAction="#loadGlobalChat" text="Global Chat" VBox.vgrow="ALWAYS" maxWidth="Infinity"/>
+            <Button id="Button" mnemonicParsing="false" onAction="#loadPrivateChat" text="Private Chat" VBox.vgrow="ALWAYS" maxWidth="Infinity"/>
          </children>
       </VBox>
    </children>

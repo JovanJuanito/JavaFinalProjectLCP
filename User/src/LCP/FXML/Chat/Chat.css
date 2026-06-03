@@ -1,0 +1,12 @@
+.ChatContainer{
+    -fx-padding:16;
+
+    -fx-background-color: #252836;
+}
+
+#chatLabel{
+    -fx-font-size:14 ;
+    -fx-text-fill: white;
+
+    -fx-background-color: #3a3f58;
+}
