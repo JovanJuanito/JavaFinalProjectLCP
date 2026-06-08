@@ -29,6 +29,10 @@ public class Username implements Initializable{
         client = c;
     }
 
+    public TextField getInputField(){
+        return inputField;
+    }
+
     public void togglePopUp(Consumer<Boolean> toggle){
         this.activatePopUp = toggle;
     }
@@ -41,7 +45,8 @@ public class Username implements Initializable{
             }
             else{
                 if(inputField.getText().contains("/nick")){
-                    client.sendMessage(inputField.getText());
+                    //popup failed nick change ui
+                    return;
                 }
                 else{
                     client.sendMessage("/nick " + inputField.getText());
@@ -53,15 +58,20 @@ public class Username implements Initializable{
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        try{
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            UsernameContainer.setPrefWidth(screenBounds.getWidth() * 0.8);
+            UsernameContainer.setPrefHeight(screenBounds.getHeight() * 0.8);
+
+            UsernameContainer.setMaxWidth(UsernameContainer.getPrefWidth());
+            UsernameContainer.setMaxHeight(UsernameContainer.getPrefHeight());
+        }
+        catch(Exception e){
+            System.err.println("Error initializing username pane: " + e.getMessage());
+            e.printStackTrace();
+        }
         
-        UsernameContainer.setPrefWidth(screenBounds.getWidth() * 0.8);
-        UsernameContainer.setPrefHeight(screenBounds.getHeight() * 0.8);
-
-        UsernameContainer.setMaxWidth(UsernameContainer.getPrefWidth());
-        UsernameContainer.setMaxHeight(UsernameContainer.getPrefHeight());
-
     }
     
 }

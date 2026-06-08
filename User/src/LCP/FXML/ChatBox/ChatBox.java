@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
 import LCP.Loaders.Client;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 // import javafx.geometry.Rectangle2D;
@@ -31,6 +32,10 @@ public class ChatBox implements Initializable{
         this.client = x;
     }
 
+    public TextField getInputField(){
+        return TextField;
+    }
+
     public void togglePopUp(Consumer<Boolean> toggle){
         this.activatePopUp = toggle;
     }
@@ -53,19 +58,14 @@ public class ChatBox implements Initializable{
                 }
             }   
             else if(msg.startsWith("/quit")){
-                //quit javafxs
+                Platform.exit();
             }
         }
     }
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-
-        // Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         
-        // ChatBoxPane.setPrefWidth(screenBounds.getWidth() * 0.75);
-        // ChatBoxPane.setPrefHeight(screenBounds.getHeight() * 0.10);
-
     }
     
 }

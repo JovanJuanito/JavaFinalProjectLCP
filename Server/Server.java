@@ -82,12 +82,13 @@ public class Server implements Runnable{ // has a relationship with ConnectionHa
                 
                 String message;
                 while((message = in.readLine()) != null){ // waiting for input from clients
-                    if(message.startsWith("/nick ")){
+                    if(message.startsWith("/nick")){
                         String[] messageSplit = message.split(" ", 2);
                         if(messageSplit.length == 2){
                             changeNick(messageSplit[1]); 
                         }
                     } else if(message.startsWith("/quit")){
+                        System.out.println(((nickname == null) ? "Unknown user" : nickname) + " left the chat!");
                         broadcast(nickname + " left the chat!");
                         shutdown();
                     } else{

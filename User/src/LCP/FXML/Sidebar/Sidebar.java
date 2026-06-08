@@ -33,7 +33,7 @@ public class Sidebar implements Initializable {
     }
 
     public Pane getGlobalChatPane(){
-        return GlobalChatData.getPane(); // add a try execpt block!
+        return GlobalChatData.getPane();
     }
 
     public void loadGlobalChat(){
@@ -54,13 +54,17 @@ public class Sidebar implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         // init Content
+        try{
+            ObjectLoader GlobalChatLoader = new ObjectLoader();
+            ObjectLoader PrivateChatLoader = new ObjectLoader();
 
-        ObjectLoader GlobalChatLoader = new ObjectLoader();
-        ObjectLoader PrivateChatLoader = new ObjectLoader();
-
-        GlobalChatData = GlobalChatLoader.load("GlobalChat");
-        PrivateChatData = PrivateChatLoader.load("PrivateChat");
-
+            GlobalChatData = GlobalChatLoader.load("GlobalChat");
+            PrivateChatData = PrivateChatLoader.load("PrivateChat");
+        }
+        catch(Exception e){
+            System.err.println("Error initializing content: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
     
 }
